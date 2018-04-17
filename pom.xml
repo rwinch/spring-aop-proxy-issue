@@ -8,9 +8,22 @@
     <artifactId>spring-aop-proxy-issue</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <spring.version>5.0.6.BUILD-SNAPSHOT</spring.version>
     </properties>
 
     <profiles>
@@ -23,39 +36,12 @@
                 <spring.version>5.0.5.BUILD-SNAPSHOT</spring.version>
                 <spring.security.version>5.1.0.BUILD-SNAPSHOT</spring.security.version>
             </properties>
-            <repositories>
-                <repository>
-                    <id>repo.spring.io-milestone</id>
-                    <name>Spring Framework Milestone Repository</name>
-                    <url>http://repo.spring.io/libs-milestone-local</url>
-                </repository>
-                <repository>
-                    <id>repo.spring.io-snapshot</id>
-                    <name>Spring Framework Maven Snapshot Repository</name>
-                    <url>http://repo.spring.io/libs-snapshot-local</url>
-                    <snapshots><enabled>true</enabled></snapshots>
-                </repository>
-            </repositories>
         </profile>
         <profile>
             <id>spring-current-snapshot</id>
             <properties>
-                <spring.version>5.0.6.BUILD-SNAPSHOT</spring.version>
                 <spring.security.version>5.1.0.BUILD-SNAPSHOT</spring.security.version>
             </properties>
-            <repositories>
-                <repository>
-                    <id>repo.spring.io-milestone</id>
-                    <name>Spring Framework Milestone Repository</name>
-                    <url>http://repo.spring.io/libs-milestone-local</url>
-                </repository>
-                <repository>
-                    <id>repo.spring.io-snapshot</id>
-                    <name>Spring Framework Maven Snapshot Repository</name>
-                    <url>http://repo.spring.io/libs-snapshot-local</url>
-                    <snapshots><enabled>true</enabled></snapshots>
-                </repository>
-            </repositories>
         </profile>
     </profiles>
 
@@ -63,33 +49,27 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -134,5 +114,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>spring-snapshot</id>
+            <url>https://repo.spring.io/libs-snapshot</url>
+        </repository>
+    </repositories>
 
 </project>
