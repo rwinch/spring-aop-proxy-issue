@@ -29,18 +29,8 @@
     <profiles>
         <profile>
             <id>spring-previous-snapshot</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <spring.version>5.0.5.BUILD-SNAPSHOT</spring.version>
-                <spring.security.version>5.1.0.BUILD-SNAPSHOT</spring.security.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>spring-current-snapshot</id>
-            <properties>
-                <spring.security.version>5.1.0.BUILD-SNAPSHOT</spring.security.version>
             </properties>
         </profile>
     </profiles>
@@ -71,16 +61,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-acl</artifactId>
-            <version>${spring.security.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>

@@ -13,27 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sample.dms;
+package sample;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
+ * Basic integration test for DMS sample when security has been added.
  *
  * @author Ben Alex
  *
  */
-public class Directory extends AbstractElement {
-	public static final Directory ROOT_DIRECTORY = new Directory();
+@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
+@RunWith(SpringRunner.class)
+public class ProxyTests {
 
-	private Directory() {
+	@Autowired
+	protected JdbcTemplate jdbcTemplate;
+
+	@Test
+	public void jdbcTemplateCorrectType() {
 	}
-
-	public Directory(String name, Directory parent) {
-		super(name, parent);
-	}
-
-	@Override
-	public String toString() {
-		return "Directory[fullName='" + getFullName() + "'; name='" + getName()
-				+ "'; id='" + getId() + "'; parent='" + getParent() + "']";
-	}
-
 }
